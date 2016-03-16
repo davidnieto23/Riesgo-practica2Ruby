@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+ 
+
+  devise_for :usuarios
+  
+  resources :posts
+  get 'post/show'
+
+  get 'post/post'
+
+  get 'post/index'
+
+  get 'post/post'
+
+  get 'post/list'
+
+  get 'post/post'
+
+  resources :post
   resources :usuarios
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sangre: MyString
+  comentario: MyText
+  solved: false
+  usuario_id: 1
+  usuarios_id: 
+
+two:
+  sangre: MyString
+  comentario: MyText
+  solved: false
+  usuario_id: 1
+  usuarios_id: 
