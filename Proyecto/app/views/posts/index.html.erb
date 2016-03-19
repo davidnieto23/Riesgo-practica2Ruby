@@ -21,7 +21,9 @@
         <td><%= post.comentario %></td>
         <td><%= post.solved %></td>
         <td><%= post.usuario_id %></td>
-        <td><%= post.usuarios %></td>
+            <% post.postulados do |postulado| %>
+               <td><%= postulado.usuario_id %></td>
+            <% end %>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

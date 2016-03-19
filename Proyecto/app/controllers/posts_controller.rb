@@ -5,8 +5,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     #para mostrar solo los post del usuario actual
-    #@posts = Post.where(usuario_id: current_usuario.id).all
-    @posts = Post.all
+    @posts = Post.where(usuario_id: current_usuario.id).all
+    #@posts = Post.all
+  end
+
+
+  def postulate
+
   end
 
   # GET /posts/1
@@ -72,6 +77,12 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def put
+
+    puts "SOme someButton"
   end
 
   private

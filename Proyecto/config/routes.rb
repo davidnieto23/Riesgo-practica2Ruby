@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   get 'post/list'
 
   get 'post/post'
+  
+  get 'post/put'
+
+  get "post/postulate" 
+
+  
 
   resources :post
   resources :usuarios

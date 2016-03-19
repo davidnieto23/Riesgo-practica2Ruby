@@ -3,5 +3,6 @@ class Usuario < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :posts
+  has_many :creados, :class_name=> 'Post'
+  has_many :postulaciones, :class_name=> 'Post'
 end
