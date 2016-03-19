@@ -1,3 +1,4 @@
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Posts</h1>
@@ -29,7 +30,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%=  pie_chart Post.group(:sangre).count %>
 <br>
 
 <%= link_to 'New Post', new_post_path %>
