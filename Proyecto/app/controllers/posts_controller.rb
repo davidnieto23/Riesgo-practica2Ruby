@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    #para mostrar solo los post del usuario actual
+    #@posts = Post.where(usuario_id: current_usuario.id).all
     @posts = Post.all
   end
 
@@ -24,10 +26,18 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_usuario.posts.create(post_params)
   
-    puts "USUARIO"
-    puts current_usuario.to_json
+
+    puts "USUARIO "
+    puts @post.to_json
+    puts current_usuario.id
+
+#    @post.usuarios = current_usuario
+     puts "USUARIO si se logro linkear"
+         
+
+
 
     respond_to do |format|
       if @post.save
@@ -74,4 +84,6 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:sangre, :comentario, :solved)
     end
+
+
 end
