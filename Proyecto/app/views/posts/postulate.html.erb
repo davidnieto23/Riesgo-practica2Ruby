@@ -23,7 +23,7 @@
 
 
 
-<% if current_usuario.id == post.donador_id%>
+<% if current_usuario.id != post.donador_id%>
         <td><%= post.sangre %></td>
         <td><%= post.comentario %></td>
         <td><%= post.solved %></td>

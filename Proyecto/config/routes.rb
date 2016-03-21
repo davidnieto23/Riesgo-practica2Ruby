@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   
   get 'posts/postulate' 
 
+  get 'posts/donaciones' 
+
 
 
   get 'post/show'
