@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 <p id="notice"><%= notice %></p>
+=======
+>>>>>>> origin/rama_quique
 
 <h1>Listing Posts</h1>
 
@@ -22,15 +25,23 @@
         <td><%= post.comentario %></td>
         <td><%= post.solved %></td>
         <td><%= post.usuario_id %></td>
-        <td><%= post.usuarios %></td>
+        <td><%= post.usuario_id %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+<% if post.solved %>
+<%= donador = Usuario.find(post.donador_id) %>
+      <td><%=post.donador_id%></td>
+      <td><%=donador.email%></td>
+      
+<% end %>   
+
+ <% end %>
   </tbody>
 </table>
 <%=  pie_chart Post.group(:sangre).count %>
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Usuario', posts_postulate_path %>

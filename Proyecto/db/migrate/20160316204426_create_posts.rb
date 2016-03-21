@@ -1,3 +1,4 @@
+
 class CreatePosts < ActiveRecord::Migration
   def change
 

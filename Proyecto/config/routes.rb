@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :usuarios
   
-  resources :posts
+  get 'posts/postulate' 
+
+
+
   get 'post/show'
 
   get 'post/post'
@@ -15,8 +18,16 @@ Rails.application.routes.draw do
   get 'post/list'
 
   get 'post/post'
+  
+  get 'post/put'
+
+get 'posts/donaste/:id', to: 'posts#donaste', as: 'donaste' 
+
+  
+  resources :posts
 
   resources :post
+
   resources :usuarios
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

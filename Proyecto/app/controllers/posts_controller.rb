@@ -5,8 +5,37 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     #para mostrar solo los post del usuario actual
-    #@posts = Post.where(usuario_id: current_usuario.id).all
-    @posts = Post.all
+    @posts = Post.where(usuario_id: current_usuario.id).all
+    puts "USUARIOOOO"
+    puts current_usuario.to_json
+
+    #@posts = Post.all
+  end
+
+  def donaste
+    puts 'DONASTE'
+puts params[:id]
+
+@donacion = Post.find(params[:id])
+#@donacion.candidato.create(current_usuario)
+puts "YA DONASTE SANGREEE"
+puts current_usuario.id
+@donacion.donador_id = current_usuario.id
+@donacion.solved = true
+puts @donacion.donador_id
+@donacion.save
+current_usuario.donacion_id = params[:id]
+puts "YA DONASTE SANGREEE y se salvo"
+puts current_usuario.to_json
+  end
+
+
+
+  def postulate
+      puts 'AL FIN'
+      #puts current_usuario.donacion.update()
+
+      @publicaciones = Post.where.not(usuario_id: current_usuario.id).all
   end
 
   # GET /posts/1
@@ -26,6 +55,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @post = Post.create(post_params)
+    puts "LLLLLOOOOOOOLLLLLL"
+    puts current_usuario.to_json
     @post = current_usuario.posts.create(post_params)
   
 
@@ -74,6 +106,12 @@ class PostsController < ApplicationController
     end
   end
 
+
+  def put
+
+    puts "SOme someButton"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -82,7 +120,12 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:sangre, :comentario, :solved)
+      params.require(:post).permit(:sangre, :comentario,  :id)
+    end
+
+        # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:post).permit(:sangre, :comentario,  :id)
     end
 
 
