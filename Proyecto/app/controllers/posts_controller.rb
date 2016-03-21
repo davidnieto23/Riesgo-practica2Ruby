@@ -6,12 +6,17 @@ class PostsController < ApplicationController
   def index
     #para mostrar solo los post del usuario actual
     @posts = Post.where(usuario_id: current_usuario.id).all
+    puts "USUARIOOOO"
+    puts current_usuario.to_json
+
     #@posts = Post.all
   end
 
 
   def postulate
-
+      puts 'AL FIN'
+      puts current_usuario.id
+      @publicaciones = Post.where.not(usuario_id: current_usuario.id).all
   end
 
   # GET /posts/1
@@ -31,6 +36,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @post = Post.create(post_params)
+    puts "LLLLLOOOOOOOLLLLLL"
+    puts current_usuario.to_json
     @post = current_usuario.posts.create(post_params)
   
 

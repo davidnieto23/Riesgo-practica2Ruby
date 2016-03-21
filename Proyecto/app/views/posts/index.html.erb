@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Listing Posts</h1>
 
@@ -21,9 +20,7 @@
         <td><%= post.comentario %></td>
         <td><%= post.solved %></td>
         <td><%= post.usuario_id %></td>
-            <% post.postulados do |postulado| %>
-               <td><%= postulado.usuario_id %></td>
-            <% end %>
+        <td><%= post.usuario_id %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,3 +32,4 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Usuario', posts_postulate_path %>
