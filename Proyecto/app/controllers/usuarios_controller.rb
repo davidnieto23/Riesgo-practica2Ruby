@@ -25,6 +25,8 @@ class UsuariosController < ApplicationController
   # POST /usuarios.json
   def create
     @usuario = Usuario.new(usuario_params)
+    puts "ENCONTRAR"
+    puts @usuario.to_json
 
     respond_to do |format|
       if @usuario.save
