@@ -14,7 +14,7 @@
   </div>
     <div class="field">
     <%= f.label :tipo_de_sangre%><br />
-    <%= f.text_field :tipoDeSangre%>
+    <%= f.text_field :tipoDeSangre , :pattern => "[a+|a-|o+|o-|ab+|ab-|b+|b-]"%>
   </div>
 
       <div class="field">
