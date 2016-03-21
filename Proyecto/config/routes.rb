@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   
   get 'post/put'
 
+get 'posts/donaste/:id', to: 'posts#donaste', as: 'donaste' 
 
   
   resources :posts

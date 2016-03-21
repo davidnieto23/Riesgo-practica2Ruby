@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321043857) do
+ActiveRecord::Schema.define(version: 20160321194225) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "sangre"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20160321043857) do
     t.boolean  "solved"
     t.integer  "usuario_id"
     t.integer  "usuarios_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "candidato_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "donador_id"
   end
 
   add_index "posts", ["usuarios_id"], name: "index_posts_on_usuarios_id"

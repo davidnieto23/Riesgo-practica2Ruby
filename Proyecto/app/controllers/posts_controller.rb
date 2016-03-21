@@ -12,10 +12,29 @@ class PostsController < ApplicationController
     #@posts = Post.all
   end
 
+  def donaste
+    puts 'DONASTE'
+puts params[:id]
+
+@donacion = Post.find(params[:id])
+#@donacion.candidato.create(current_usuario)
+puts "YA DONASTE SANGREEE"
+puts current_usuario.id
+@donacion.donador_id = current_usuario.id
+@donacion.solved = true
+puts @donacion.donador_id
+@donacion.save
+current_usuario.donacion_id = params[:id]
+puts "YA DONASTE SANGREEE y se salvo"
+puts current_usuario.to_json
+  end
+
+
 
   def postulate
       puts 'AL FIN'
-      puts current_usuario.id
+      #puts current_usuario.donacion.update()
+
       @publicaciones = Post.where.not(usuario_id: current_usuario.id).all
   end
 
@@ -101,7 +120,12 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:sangre, :comentario, :solved)
+      params.require(:post).permit(:sangre, :comentario,  :id)
+    end
+
+        # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:post).permit(:sangre, :comentario,  :id)
     end
 
 
