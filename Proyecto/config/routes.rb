@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
  
 
-  devise_for :usuarios
+#  devise_for :usuarios
   
   get 'posts/postulate' 
+
+  get 'posts/donaciones' 
 
 
 
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   get 'post/put'
 
 get 'posts/donaste/:id', to: 'posts#donaste', as: 'donaste' 
+devise_for :usuarios, :controllers => { registrations: 'registrations' }
 
   
   resources :posts

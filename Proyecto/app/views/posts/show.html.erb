@@ -11,18 +11,8 @@
 </p>
 
 <p>
-  <strong>Solved:</strong>
-  <%= @post.solved %>
-</p>
-
-<p>
   <strong>Usuario:</strong>
-  <%= @post.usuario.to_json %>
-</p>
-
-<p>
-  <strong>Usuarios:</strong>
-  <%= @post.usuario_id %>
+  <%= current_usuario.nombre %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

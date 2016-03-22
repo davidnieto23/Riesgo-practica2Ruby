@@ -59,15 +59,8 @@ puts current_usuario.to_json
     puts "LLLLLOOOOOOOLLLLLL"
     puts current_usuario.to_json
     @post = current_usuario.posts.create(post_params)
-  
-
-    puts "USUARIO "
-    puts @post.to_json
-    puts current_usuario.id
-
-#    @post.usuarios = current_usuario
-     puts "USUARIO si se logro linkear"
          
+    @post.sangre = current_usuario.tipoDeSangre
 
 
 
@@ -112,6 +105,11 @@ puts current_usuario.to_json
     puts "SOme someButton"
   end
 
+  def donaciones
+      @publicaciones = Post.where(donador_id: current_usuario.id).all
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -120,12 +118,12 @@ puts current_usuario.to_json
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:sangre, :comentario,  :id)
+      params.require(:post).permit(:comentario,  :id)
     end
 
         # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:sangre, :comentario,  :id)
+      params.require(:post).permit( :comentario,  :id)
     end
 
 

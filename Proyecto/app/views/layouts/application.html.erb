@@ -26,13 +26,13 @@
 
 
 <ul class="nav">
-  <li class="active"><a href="/posts">Mis publicaciones</a></li>
-    <li class="active"><a href="/posts/postulate">Donar sangre</a></li>
+  <li class="active"><a href="/posts">Mis peticiones</a></li>
+  <li class="active"><a href="/posts/postulate">Donar sangre</a></li>
+  <li class="active"><a href="/posts/donaciones">Mis donaciones</a></li>
 </ul>
 <p class="navbar-text pull-right">
 <% if usuario_signed_in? %>
-  Logged in as <strong><%= current_usuario.email %></strong>.
-  <%= link_to 'Edit profile', edit_usuario_registration_path, :class => 'navbar-link' %> |
+  Logeado como  <strong><%= current_usuario.email %></strong>.
   <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
   <%= link_to "Sign up", new_usuario_registration_path, :class => 'navbar-link'  %> |

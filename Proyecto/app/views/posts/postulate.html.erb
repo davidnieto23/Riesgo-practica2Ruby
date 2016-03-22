@@ -10,9 +10,7 @@
     <tr>
       <th>Sangre</th>
       <th>Comentario</th>
-      <th>Solved</th>
-      <th>Usuario</th>
-      <th>Usuarios</th>
+      <th>Solicitante</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,15 +21,16 @@
 
 
 
+<% if !post.solved%>
         <td><%= post.sangre %></td>
         <td><%= post.comentario %></td>
-        <td><%= post.solved %></td>
-        <td><%= post.usuario_id %></td>
-        <td><%= post.id %></td>
-        <td><%= current_usuario.id %></td>
-        <td><%= current_usuario.id %></td>
+        <%= donador = Usuario.find(post.usuario_id) %>
+        <td><%= donador.nombre %></td>
 
+<% if (!post.solved) && current_usuario.tipoDeSangre == post.sangre %>
 <td><%= link_to 'Postulate', donaste_path(post.id) %></td>
+<% end %>
+<% end %>
 
 
   <div class="actions">
