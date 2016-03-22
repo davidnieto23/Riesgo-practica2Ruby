@@ -8,7 +8,6 @@
   <thead>
     <tr>
       <th>Nombre:</th>
-      <th>Password:</th>
       <th>Tipo De Sangre:</th>
       <th>Telefono:</th>
       <th>Direccion:</th>
@@ -20,7 +19,6 @@
     <% @usuarios.each do |usuario| %>
       <tr>
         <td><%= usuario.nombre %></td>
-        <td><%= usuario.password %></td>
         <td><%= usuario.tipoDeSangre %></td>
         <td><%= usuario.telefono %></td>
         <td><%= usuario.direccion %></td>
@@ -33,8 +31,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Usuario', new_usuario_path %>
-
 
 <%end%>
